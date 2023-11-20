@@ -19,10 +19,10 @@ public class OutputView {
     }
 
     public static void printCoins(int unit, int count) {
-        System.out.println(String.format(Form.FORM_COIN.getMessage(), unit, count));
+        System.out.println(String.format(Form.COIN_FORM.getMessage(), unit, count));
     }
 
     public static void printProduct() {
-        System.out.println(Form.PRODUCT_DEMAND);
+        System.out.println(Form.PRODUCT_DEMAND.getMessage());
     }
 }

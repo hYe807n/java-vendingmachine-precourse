@@ -1,16 +1,20 @@
 package vendingmachine.exception;
 
-import static vendingmachine.enums.Exception.*;
 
+import static vendingmachine.enums.Exception.MONEY_DIVIDE;
+import static vendingmachine.enums.Exception.MONEY_FORM;
+import static vendingmachine.enums.Exception.MONEY_MINIMUM;
+import static vendingmachine.enums.Exception.PRODUCT_FORM;
 
-public class Validate {
+public class Validation {
 
-    public static String numberForm = "^[0-9]*";
+    public static String NUMBER_FORM = "^[0-9]*";
+    public static String PRODUCTS_FORM = "^(\\[[가-힣]+,[0-9]+,[0-9]+\\]+)(;\\[[가-힣]+,[0-9]+,[0-9]+\\]+)*$";
     public static int minimumMoney = 100;
     public static int moneyUnit = 10;
 
     public static void composeOnlyNumber(String number) {
-        if (!number.matches(numberForm)) {
+        if (!number.matches(NUMBER_FORM)) {
             throw new IllegalArgumentException(MONEY_FORM.getMessage());
         }
     }
@@ -24,6 +28,12 @@ public class Validate {
     public static void checkMoneyDivide(String number) {
         if ((Integer.parseInt(number) % moneyUnit) != 0) {
             throw new IllegalArgumentException(MONEY_DIVIDE.getMessage());
+        }
+    }
+
+    public static void checkProductForm(String products) {
+        if(!products.matches(PRODUCTS_FORM)) {
+            throw new IllegalArgumentException(PRODUCT_FORM.getMessage());
         }
     }
 }

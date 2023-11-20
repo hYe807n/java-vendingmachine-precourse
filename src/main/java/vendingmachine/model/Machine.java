@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import vendingmachine.Random.RandomGenerator;
 import vendingmachine.enums.Coin;
-import vendingmachine.exception.Validate;
+import vendingmachine.exception.Validation;
 
 public class Machine {
 
@@ -49,8 +49,8 @@ public class Machine {
     }
 
     private void validate(String money) {
-        Validate.composeOnlyNumber(money);
-        Validate.checkMoneyRange(money);
-        Validate.checkMoneyDivide(money);
+        Validation.composeOnlyNumber(money);
+        Validation.checkMoneyRange(money);
+        Validation.checkMoneyDivide(money);
     }
 }

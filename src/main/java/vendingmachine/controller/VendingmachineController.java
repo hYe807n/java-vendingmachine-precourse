@@ -1,16 +1,17 @@
 package vendingmachine.controller;
 
 import vendingmachine.model.Machine;
+import vendingmachine.model.Products;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
 public class VendingmachineController {
 
     private Machine machine;
-
+    private Products products;
     public void run() {
         initializeMachineMoney();
-        initializeCoins();
+        printRandomCoins();
         initializeProduct();
     }
 
@@ -24,7 +25,7 @@ public class VendingmachineController {
         }
     }
 
-    private void initializeCoins() {
+    private void printRandomCoins() {
         OutputView.printMachineCoins();
         machine.getCoins().forEach(
             OutputView::printCoins
@@ -32,6 +33,12 @@ public class VendingmachineController {
     }
 
     private void initializeProduct() {
-        InputView.readProductInform();
+        try {
+            String products = InputView.readProductInform();
+            this.products = new Products(products);
+        } catch (IllegalArgumentException exception) {
+            OutputView.printException(exception.getMessage());
+            initializeProduct();
+        }
     }
 }

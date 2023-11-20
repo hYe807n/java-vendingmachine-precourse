@@ -6,11 +6,11 @@ public class InputView {
 
     public static String readMachineProperty() {
         OutputView.printMachineProperty();
-        return readLine();
+        return readLine().trim();
     }
 
     public static String readProductInform() {
         OutputView.printProduct();
-        return readLine();
+        return readLine().trim();
     }
 }
