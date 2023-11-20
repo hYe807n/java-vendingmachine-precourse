@@ -11,6 +11,11 @@ public class InputView {
 
     public static String readProductInform() {
         OutputView.printProduct();
+        return readLine().replaceAll("[\\[\\]]", "").trim();
+    }
+
+    public static String readUserProperty() {
+        OutputView.printUserProperty();
         return readLine().trim();
     }
 }

@@ -25,4 +25,8 @@ public class OutputView {
     public static void printProduct() {
         System.out.println(Form.PRODUCT_DEMAND.getMessage());
     }
+
+    public static void printUserProperty() {
+        System.out.println(Form.USER_PROPERTY_DEMAND.getMessage());
+    }
 }

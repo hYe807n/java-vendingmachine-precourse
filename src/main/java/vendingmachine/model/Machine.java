@@ -48,6 +48,7 @@ public class Machine {
         return money / coin.getAmount();
     }
 
+
     private void validate(String money) {
         Validation.composeOnlyNumber(money);
         Validation.checkMoneyDivide(money);

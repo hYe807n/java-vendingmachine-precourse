@@ -2,7 +2,6 @@ package vendingmachine.model;
 
 import java.util.Arrays;
 import java.util.List;
-import javafx.beans.property.StringProperty;
 import vendingmachine.exception.Validation;
 
 public class Product {
@@ -14,7 +13,6 @@ public class Product {
     private final String inform;
 
     public Product(String inform) {
-        inform = inform.replaceAll("[\\[\\]]", "");
         validate(Arrays.asList(inform.split(",")));
         this.inform = inform;
     }
