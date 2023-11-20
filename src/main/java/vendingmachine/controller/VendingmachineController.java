@@ -4,10 +4,10 @@ import vendingmachine.view.InputView;
 
 public class VendingmachineController {
     public void run() {
-        initializeProperty();
+        initializeMachineMoney();
     }
 
-    private void initializeProperty() {
-        InputView.readProperty();
+    private void initializeMachineMoney() {
+        InputView.readMachineProperty();
     }
 }

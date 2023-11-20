@@ -1,13 +1,13 @@
 package vendingmachine.enums;
 
-
-public enum Form {
-    MACHINE_PROPERTY_DEMAND("자판기가 보유하고 있는 금액을 입력해 주세요."),
+public enum Exception {
+    HEADER("[ERROR] "),
+    MONEY_FORM("금액은 숫자여야 합니다."),
     ;
 
     private final String message;
 
-    Form(String message) {
+    Exception(String message) {
         this.message = message;
     }
 

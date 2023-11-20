@@ -4,8 +4,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
 
-    public static String readProperty() {
-        OutputView.printProperty();
+    public static String readMachineProperty() {
+        OutputView.printMachineProperty();
         return readLine();
     }
 }

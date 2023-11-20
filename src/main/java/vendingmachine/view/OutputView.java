@@ -4,7 +4,7 @@ import vendingmachine.enums.Form;
 
 public class OutputView {
 
-    public static void printProperty() {
-        System.out.println(Form.PROPERTY_DEMAND.getMessage());
+    public static void printMachineProperty() {
+        System.out.println(Form.MACHINE_PROPERTY_DEMAND.getMessage());
     }
 }
