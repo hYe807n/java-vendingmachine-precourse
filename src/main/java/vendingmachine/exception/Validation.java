@@ -6,6 +6,7 @@ import static vendingmachine.enums.Exception.MONEY_FORM;
 import static vendingmachine.enums.Exception.MONEY_MINIMUM;
 import static vendingmachine.enums.Exception.PRODUCT_COUNT;
 import static vendingmachine.enums.Exception.PRODUCT_FORM;
+import static vendingmachine.enums.Exception.PRODUCT_NAME;
 
 public class Validation {
 
@@ -41,7 +42,7 @@ public class Validation {
 
     public static void composeOnlyKorean(String productName) {
         if (!productName.matches(NAME_FORM)) {
-            throw new IllegalArgumentException(PRODUCT_FORM.getMessage());
+            throw new IllegalArgumentException(PRODUCT_NAME.getMessage());
         }
     }
 

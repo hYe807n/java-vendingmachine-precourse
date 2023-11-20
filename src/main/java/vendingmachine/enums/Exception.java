@@ -7,6 +7,7 @@ public enum Exception {
     MONEY_DIVIDE("금액은 10 원 단위여야 합니다."),
     PRODUCT_FORM("상품명, 가격, 수량은 쉼표로, 개별 상품은 대괄호([])로 묶어 세미콜론(;)으로 구분해야 합니다."),
     PRODUCT_COUNT("상품 가격은 1 개 이상이어야 합니다."),
+    PRODUCT_NAME("상품명은 한글이어야 합니다."),
     ;
 
     private final String message;
