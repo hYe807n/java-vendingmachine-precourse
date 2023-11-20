@@ -11,6 +11,7 @@ public class VendingmachineController {
     public void run() {
         initializeMachineMoney();
         initializeCoins();
+        initializeProduct();
     }
 
     private void initializeMachineMoney() {
@@ -28,5 +29,9 @@ public class VendingmachineController {
         machine.getCoins().forEach(
             OutputView::printCoins
         );
+    }
+
+    private void initializeProduct() {
+        InputView.readProductInform();
     }
 }

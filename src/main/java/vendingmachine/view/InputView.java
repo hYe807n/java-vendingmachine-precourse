@@ -8,4 +8,9 @@ public class InputView {
         OutputView.printMachineProperty();
         return readLine();
     }
+
+    public static String readProductInform() {
+        OutputView.printProduct();
+        return readLine();
+    }
 }
