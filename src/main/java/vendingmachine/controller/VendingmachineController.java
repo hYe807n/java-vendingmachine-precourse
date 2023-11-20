@@ -17,6 +17,11 @@ public class VendingmachineController {
         printRandomCoins();
         initializeProduct();
         initializeUserMoney();
+        purchase(user.getMoney());
+    }
+
+    private void purchase(int balance) {
+        OutputView.printBalance(balance);
     }
 
     private void initializeMachineMoney() {

@@ -29,4 +29,8 @@ public class OutputView {
     public static void printUserProperty() {
         System.out.println(Form.USER_PROPERTY_DEMAND.getMessage());
     }
+
+    public static void printBalance(int money) {
+        System.out.println(String.format(Form.BALANCE.getMessage(), money));
+    }
 }
