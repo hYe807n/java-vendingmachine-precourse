@@ -5,6 +5,8 @@ import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
 public class VendingmachineController {
+
+    private Machine machine;
     public void run() {
         initializeMachineMoney();
     }
@@ -12,7 +14,7 @@ public class VendingmachineController {
     private void initializeMachineMoney() {
         try {
             String money = InputView.readMachineProperty();
-            Machine machine = new Machine(money);
+            this.machine = new Machine(money);
         } catch (IllegalArgumentException exception) {
             OutputView.printException(exception.getMessage());
             initializeMachineMoney();
