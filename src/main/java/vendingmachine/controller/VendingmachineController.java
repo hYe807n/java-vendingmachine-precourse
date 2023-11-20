@@ -9,6 +9,7 @@ public class VendingmachineController {
     private Machine machine;
     public void run() {
         initializeMachineMoney();
+
     }
 
     private void initializeMachineMoney() {
@@ -19,5 +20,12 @@ public class VendingmachineController {
             OutputView.printException(exception.getMessage());
             initializeMachineMoney();
         }
+    }
+
+    private void initializeCoins() {
+        OutputView.printMachineCoins();
+        machine.getCoins().forEach(
+            OutputView::printCoins
+        );
     }
 }
