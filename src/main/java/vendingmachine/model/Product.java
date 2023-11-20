@@ -19,6 +19,7 @@ public class Product {
 
     private void validate(List<String> inform) {
         Validation.composeOnlyKorean(inform.get(INDEX_NAME));
-
+        Validation.composeOnlyKorean(inform.get(INDEX_PRICE));
+        Validation.composeOnlyNumber(inform.get(INDEX_COUNT));
     }
 }
