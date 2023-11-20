@@ -3,6 +3,7 @@ package vendingmachine.enums;
 public enum Exception {
     HEADER("[ERROR] "),
     MONEY_FORM("금액은 숫자여야 합니다."),
+    MONEY_MINIMUM("금액은 100 원 이상이어야 가능합니다.")
     ;
 
     private final String message;

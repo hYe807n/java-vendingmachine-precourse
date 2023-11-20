@@ -1,6 +1,8 @@
 package vendingmachine.controller;
 
+import vendingmachine.model.Machine;
 import vendingmachine.view.InputView;
+import vendingmachine.view.OutputView;
 
 public class VendingmachineController {
     public void run() {
@@ -8,6 +10,12 @@ public class VendingmachineController {
     }
 
     private void initializeMachineMoney() {
-        InputView.readMachineProperty();
+        try {
+            String money = InputView.readMachineProperty();
+            Machine machine = new Machine(money);
+        } catch (IllegalArgumentException exception) {
+            OutputView.printException(exception.getMessage());
+            initializeMachineMoney();
+        }
     }
 }
