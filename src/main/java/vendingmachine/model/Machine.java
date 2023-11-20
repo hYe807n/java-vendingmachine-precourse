@@ -1,12 +1,10 @@
 package vendingmachine.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import vendingmachine.Random.RandomGenerator;
 import vendingmachine.enums.Coin;
-import vendingmachine.exception.MoneyValidate;
+import vendingmachine.exception.Validate;
 
 public class Machine {
 
@@ -51,8 +49,8 @@ public class Machine {
     }
 
     private void validate(String money) {
-        MoneyValidate.composeOnlyNumber(money);
-        MoneyValidate.checkRange(money);
-        MoneyValidate.checkDivide(money);
+        Validate.composeOnlyNumber(money);
+        Validate.checkMoneyRange(money);
+        Validate.checkMoneyDivide(money);
     }
 }

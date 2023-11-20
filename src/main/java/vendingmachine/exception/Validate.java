@@ -3,7 +3,7 @@ package vendingmachine.exception;
 import static vendingmachine.enums.Exception.*;
 
 
-public class MoneyValidate {
+public class Validate {
 
     public static String numberForm = "^[0-9]*";
     public static int minimumMoney = 100;
@@ -15,13 +15,13 @@ public class MoneyValidate {
         }
     }
 
-    public static void checkRange(String number) {
+    public static void checkMoneyRange(String number) {
         if (Integer.parseInt(number) < minimumMoney) {
             throw new IllegalArgumentException(MONEY_MINIMUM.getMessage());
         }
     }
 
-    public static void checkDivide(String number) {
+    public static void checkMoneyDivide(String number) {
         if ((Integer.parseInt(number) % moneyUnit) != 0) {
             throw new IllegalArgumentException(MONEY_DIVIDE.getMessage());
         }
