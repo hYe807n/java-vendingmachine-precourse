@@ -7,9 +7,10 @@ import vendingmachine.view.OutputView;
 public class VendingmachineController {
 
     private Machine machine;
+
     public void run() {
         initializeMachineMoney();
-
+        initializeCoins();
     }
 
     private void initializeMachineMoney() {
