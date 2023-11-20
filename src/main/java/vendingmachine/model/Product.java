@@ -22,5 +22,6 @@ public class Product {
         Validation.composeOnlyNumber(inform.get(INDEX_PRICE));
         Validation.composeOnlyNumber(inform.get(INDEX_COUNT));
         Validation.checkMoneyRange(inform.get(INDEX_PRICE));
+        Validation.checkMoneyDivide(inform.get(INDEX_PRICE));
     }
 }
