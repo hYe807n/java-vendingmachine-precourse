@@ -50,7 +50,6 @@ public class Machine {
 
     private void validate(String money) {
         Validation.composeOnlyNumber(money);
-        Validation.checkMoneyRange(money);
         Validation.checkMoneyDivide(money);
     }
 }
