@@ -7,7 +7,8 @@ public enum Form {
     COIN_FORM("%d원 - %d개"),
     PRODUCT_DEMAND("\n상품명과 가격, 수량을 입력해 주세요."),
     USER_PROPERTY_DEMAND("\n투입 금액을 입력해 주세요."),
-    BALANCE("투입 금액: %d"),
+    BALANCE("\n투입 금액: %d"),
+    USER_PURCHASE_DEMAND("구매할 상품명을 입력해 주세요."),
     ;
 
     private final String message;

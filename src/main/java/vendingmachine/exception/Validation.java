@@ -7,6 +7,8 @@ import static vendingmachine.enums.Exception.MONEY_MINIMUM;
 import static vendingmachine.enums.Exception.PRODUCT_COUNT;
 import static vendingmachine.enums.Exception.PRODUCT_FORM;
 import static vendingmachine.enums.Exception.PRODUCT_NAME;
+import static vendingmachine.enums.Exception.PRODUCT_NON_EXIST;
+
 
 public class Validation {
 
@@ -46,9 +48,14 @@ public class Validation {
         }
     }
 
-    public static void checkProductCount(String count)  {
+    public static void checkProductCount(String count) {
         if (Integer.parseInt(count) < 1) {
             throw new IllegalArgumentException(PRODUCT_COUNT.getMessage());
         }
     }
+
+    public static void NoneExistPurchaseProduct() {
+        throw new IllegalArgumentException(PRODUCT_NON_EXIST.getMessage());
+    }
 }
+

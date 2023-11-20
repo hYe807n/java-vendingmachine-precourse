@@ -10,11 +10,20 @@ public class Product {
     static private final int INDEX_PRICE = 1;
     static private final int INDEX_COUNT = 2;
 
-    private final String inform;
+    private final String name;
+    private final int price;
+    private final int count;
 
     public Product(String inform) {
-        validate(Arrays.asList(inform.split(",")));
-        this.inform = inform;
+        List<String> informs = Arrays.asList(inform.split(","));
+        validate(informs);
+        this.name = informs.get(INDEX_NAME);
+        this.price = Integer.parseInt(informs.get(INDEX_PRICE));
+        this.count = Integer.parseInt(informs.get(INDEX_COUNT));
+    }
+
+    public boolean isSameProduct(String name) {
+        return this.name.equals(name);
     }
 
     private void validate(List<String> inform) {

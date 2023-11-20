@@ -33,4 +33,8 @@ public class OutputView {
     public static void printBalance(int money) {
         System.out.println(String.format(Form.BALANCE.getMessage(), money));
     }
+
+    public static void printPurchaseProduct() {
+        System.out.println(Form.USER_PURCHASE_DEMAND.getMessage());
+    }
 }

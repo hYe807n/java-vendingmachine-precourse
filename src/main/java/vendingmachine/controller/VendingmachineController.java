@@ -1,5 +1,6 @@
 package vendingmachine.controller;
 
+import vendingmachine.exception.Validation;
 import vendingmachine.model.Machine;
 import vendingmachine.model.Products;
 import vendingmachine.model.User;
@@ -17,11 +18,13 @@ public class VendingmachineController {
         printRandomCoins();
         initializeProduct();
         initializeUserMoney();
-        purchase(user.getMoney());
+        purchase(this.products, user.getMoney());
     }
 
-    private void purchase(int balance) {
+    private void purchase(Products products, int balance) {
         OutputView.printBalance(balance);
+        String purchaseProduct = InputView.readPurchaseProduct();
+        products.calculateBalance(purchaseProduct);
     }
 
     private void initializeMachineMoney() {

@@ -18,4 +18,9 @@ public class InputView {
         OutputView.printUserProperty();
         return readLine().trim();
     }
+
+    public static String readPurchaseProduct() {
+        OutputView.printPurchaseProduct();
+        return readLine().trim();
+    }
 }

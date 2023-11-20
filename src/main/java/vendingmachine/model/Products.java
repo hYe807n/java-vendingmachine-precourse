@@ -15,4 +15,16 @@ public class Products {
             .map(Product::new)
             .collect(Collectors.toList());
     }
+
+
+    public void calculateBalance(String purchaseProduct) {
+        validatePurchaseProduct(purchaseProduct);
+    }
+
+    private void validatePurchaseProduct(String name) {
+        if (products.stream()
+            .noneMatch(product -> product.isSameProduct(name))) {
+            Validation.NoneExistPurchaseProduct();
+        }
+    }
 }
