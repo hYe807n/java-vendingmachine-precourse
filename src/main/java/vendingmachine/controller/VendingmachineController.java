@@ -22,9 +22,10 @@ public class VendingmachineController {
     }
 
     private void purchase(Products products, int balance) {
+
         OutputView.printBalance(balance);
         String purchaseProduct = InputView.readPurchaseProduct();
-        products.calculateBalance(purchaseProduct, balance);
+        balance = products.purchase(purchaseProduct, balance);
     }
 
     private void initializeMachineMoney() {

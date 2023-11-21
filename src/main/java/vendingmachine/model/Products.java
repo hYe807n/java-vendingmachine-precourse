@@ -17,8 +17,10 @@ public class Products {
     }
 
 
-    public void calculateBalance(String purchaseProduct, int balance) {
+    public int purchase(String purchaseProduct, int balance) {
         validatePurchase(purchaseProduct, balance);
+        return products.stream().filter(product -> product.isSameProduct(purchaseProduct))
+            .mapToInt(product -> product.calculateBalance(balance)).sum();
     }
 
     private void validatePurchase(String purchaseProduct, int balance) {

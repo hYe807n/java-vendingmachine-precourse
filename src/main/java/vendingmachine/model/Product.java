@@ -34,6 +34,10 @@ public class Product {
         return this.price > money;
     }
 
+    public int calculateBalance(int money) {
+        return money - this.price;
+    }
+
     private void validate(List<String> inform) {
         Validation.composeOnlyKorean(inform.get(INDEX_NAME));
         Validation.composeOnlyNumber(inform.get(INDEX_PRICE));
