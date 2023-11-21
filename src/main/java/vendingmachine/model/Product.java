@@ -26,6 +26,10 @@ public class Product {
         return this.name.equals(name);
     }
 
+    public boolean isExpensive(int money) {
+        return this.price > money;
+    }
+
     private void validate(List<String> inform) {
         Validation.composeOnlyKorean(inform.get(INDEX_NAME));
         Validation.composeOnlyNumber(inform.get(INDEX_PRICE));

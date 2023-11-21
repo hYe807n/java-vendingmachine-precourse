@@ -5,6 +5,7 @@ import static vendingmachine.enums.Exception.MONEY_DIVIDE;
 import static vendingmachine.enums.Exception.MONEY_FORM;
 import static vendingmachine.enums.Exception.MONEY_MINIMUM;
 import static vendingmachine.enums.Exception.PRODUCT_COUNT;
+import static vendingmachine.enums.Exception.PRODUCT_DEFICIENCY_BALANCE;
 import static vendingmachine.enums.Exception.PRODUCT_FORM;
 import static vendingmachine.enums.Exception.PRODUCT_NAME;
 import static vendingmachine.enums.Exception.PRODUCT_NON_EXIST;
@@ -56,6 +57,10 @@ public class Validation {
 
     public static void NoneExistPurchaseProduct() {
         throw new IllegalArgumentException(PRODUCT_NON_EXIST.getMessage());
+    }
+
+    public static void deficiencyPurchaseBalance() {
+        throw new IllegalArgumentException(PRODUCT_DEFICIENCY_BALANCE.getMessage());
     }
 }
 

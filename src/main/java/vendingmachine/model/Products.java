@@ -17,8 +17,15 @@ public class Products {
     }
 
 
-    public void calculateBalance(String purchaseProduct) {
+    public void calculateBalance(String purchaseProduct, int balance) {
         validatePurchaseProduct(purchaseProduct);
+        validatePurchasePrice(balance);
+    }
+
+    private void validatePurchasePrice(int balance) {
+        if (products.stream().anyMatch(product -> product.isExpensive(balance))) {
+            Validation.deficiencyPurchaseBalance();
+        }
     }
 
     private void validatePurchaseProduct(String name) {
