@@ -18,8 +18,21 @@ public class Products {
 
 
     public void calculateBalance(String purchaseProduct, int balance) {
+        validatePurchase(purchaseProduct, balance);
+    }
+
+    private void validatePurchase(String purchaseProduct, int balance) {
         validatePurchaseProduct(purchaseProduct);
+        validateProductCount(purchaseProduct);
         validatePurchasePrice(balance);
+    }
+
+    private void validateProductCount(String purchaseProduct) {
+        if (products.stream()
+            .filter( product -> product.isSameProduct(purchaseProduct))
+            .anyMatch(Product::isZeroCount)) {
+            Validation.ZeroCountProduct();
+        }
     }
 
     private void validatePurchasePrice(int balance) {

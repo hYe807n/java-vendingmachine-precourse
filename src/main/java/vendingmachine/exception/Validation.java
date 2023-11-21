@@ -9,6 +9,9 @@ import static vendingmachine.enums.Exception.PRODUCT_DEFICIENCY_BALANCE;
 import static vendingmachine.enums.Exception.PRODUCT_FORM;
 import static vendingmachine.enums.Exception.PRODUCT_NAME;
 import static vendingmachine.enums.Exception.PRODUCT_NON_EXIST;
+import static vendingmachine.enums.Exception.PRODUCT_ZERO_COUNT;
+
+import org.junit.jupiter.params.ParameterizedTest;
 
 
 public class Validation {
@@ -61,6 +64,10 @@ public class Validation {
 
     public static void deficiencyPurchaseBalance() {
         throw new IllegalArgumentException(PRODUCT_DEFICIENCY_BALANCE.getMessage());
+    }
+
+    public static void ZeroCountProduct() {
+        throw new IllegalArgumentException(PRODUCT_ZERO_COUNT.getMessage());
     }
 }
 

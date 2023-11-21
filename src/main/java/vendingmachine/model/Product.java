@@ -22,6 +22,10 @@ public class Product {
         this.count = Integer.parseInt(informs.get(INDEX_COUNT));
     }
 
+    public boolean isZeroCount() {
+        return this.count == 0;
+    }
+
     public boolean isSameProduct(String name) {
         return this.name.equals(name);
     }

@@ -9,7 +9,8 @@ public enum Exception {
     PRODUCT_COUNT("상품 가격은 1 개 이상이어야 합니다."),
     PRODUCT_NAME("상품명은 한글이어야 합니다."),
     PRODUCT_NON_EXIST("존재하지 않는 상품명입니다."),
-    PRODUCT_DEFICIENCY_BALANCE("잔고가 부족합니다."),
+    PRODUCT_DEFICIENCY_BALANCE("투입 금액 잔고가 부족합니다."),
+    PRODUCT_ZERO_COUNT("상품의 수량이 0 입니다."),
     ;
 
     private final String message;
