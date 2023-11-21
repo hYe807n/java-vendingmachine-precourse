@@ -18,15 +18,20 @@ public class VendingmachineController {
         printRandomCoins();
         initializeProduct();
         initializeUserMoney();
-        purchase(this.products, user.getMoney());
+        int purchase = purchase(this.products, user.getMoney());
     }
 
-    private void purchase(Products products, int balance) {
-        while (products.checkSoldOut()) {
-            OutputView.printBalance(balance);
-            String purchaseProduct = InputView.readPurchaseProduct();
-            balance = products.purchase(purchaseProduct, balance);
+    private int purchase(Products products, int balance) {
+        try {
+            while (!products.checkSoldOut() && !products.checkPurchaseState(balance)) {
+                OutputView.printBalance(balance);
+                balance = products.purchase(InputView.readPurchaseProduct(), balance);
+            }
+        } catch (IllegalArgumentException exception) {
+            OutputView.printException(exception.getMessage());
+            purchase(products, balance);
         }
+        return balance;
     }
 
     private void initializeMachineMoney() {
