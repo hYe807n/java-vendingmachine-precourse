@@ -11,7 +11,7 @@ public class InputView {
 
     public static String readProductInform() {
         OutputView.printProduct();
-        return readLine().replaceAll("[\\[\\]]", "").trim();
+        return readLine().trim();
     }
 
     public static String readUserProperty() {

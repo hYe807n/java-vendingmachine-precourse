@@ -15,7 +15,7 @@ public class Product {
     private final int count;
 
     public Product(String inform) {
-        List<String> informs = Arrays.asList(inform.split(","));
+        List<String> informs = Arrays.asList(inform.replaceAll("[\\[\\]]", "").split(","));
         validate(informs);
         this.name = informs.get(INDEX_NAME);
         this.price = Integer.parseInt(informs.get(INDEX_PRICE));
