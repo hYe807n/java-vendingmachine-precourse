@@ -16,6 +16,9 @@ public class Products {
             .collect(Collectors.toList());
     }
 
+    public boolean checkSoldOut() {
+        return products.stream().noneMatch(Product::isZeroCount);
+    }
 
     public int purchase(String purchaseProduct, int balance) {
         validatePurchase(purchaseProduct, balance);
@@ -44,8 +47,8 @@ public class Products {
     }
 
     private void validatePurchaseProduct(String name) {
-        if (products.stream()
-            .noneMatch(product -> product.isSameProduct(name))) {
+        if (!products.stream()
+            .anyMatch(product -> product.isSameProduct(name))) {
             Validation.NoneExistPurchaseProduct();
         }
     }

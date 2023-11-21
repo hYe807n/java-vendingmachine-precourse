@@ -22,10 +22,11 @@ public class VendingmachineController {
     }
 
     private void purchase(Products products, int balance) {
-
-        OutputView.printBalance(balance);
-        String purchaseProduct = InputView.readPurchaseProduct();
-        balance = products.purchase(purchaseProduct, balance);
+        while (products.checkSoldOut()) {
+            OutputView.printBalance(balance);
+            String purchaseProduct = InputView.readPurchaseProduct();
+            balance = products.purchase(purchaseProduct, balance);
+        }
     }
 
     private void initializeMachineMoney() {
