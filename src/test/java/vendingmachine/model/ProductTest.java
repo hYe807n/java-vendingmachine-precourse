@@ -3,6 +3,8 @@ package vendingmachine.model;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,9 +22,15 @@ class ProductTest {
         );
     }
 
-    @ParameterizedTest(name = "{0} product가 입력되면, {1}으로 예외 발생")
+    @ParameterizedTest(name = "{0} product 가 입력되면, {1}으로 예외 발생")
     @MethodSource("exceptionProductInitial")
     void checkProductInform(String products, String description) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Product(products));
+    }
+
+    @DisplayName("상품 잔고가 0이 아니라면, false 반환")
+    @Test
+    void isCountNotZero() {
+        Assertions.assertFalse(new Product("[콜라,1000,1]").isZeroCount());
     }
 }
