@@ -51,4 +51,16 @@ class ProductTest {
     void isExpensiveProduct() {
         Assertions.assertTrue(new Product("[콜라,1000,1]").isExpensive(500));
     }
+
+    @DisplayName("잔고가 1500 원이고, 상품 가격이 1000 원이면, false 반환")
+    @Test
+    void isNotExpensiveProduct() {
+        Assertions.assertFalse(new Product("[콜라,1000,1]").isExpensive(1500));
+    }
+
+    @DisplayName("잔고가 1500 원이고, 상품 가격이 1000 원이면 잔돈 500 원 반환")
+    @Test
+    void calculateBalanceByProduct() {
+        Assertions.assertEquals(new Product("[콜라,1000,1]").calculateBalance(1500), 500);
+    }
 }
