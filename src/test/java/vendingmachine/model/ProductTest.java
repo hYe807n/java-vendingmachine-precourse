@@ -37,6 +37,12 @@ class ProductTest {
     @DisplayName("상품명 객체가 \"콜라\"이고, 구매 상품명이 \"콜라\"로 일치하면, true 반환")
     @Test
     void isSameProductCheck() {
-        Assertions.assertTrue(new Product("[콜라,1000,1]").isZeroCount("콜라"));
+        Assertions.assertTrue(new Product("[콜라,1000,1]").isSameProduct("콜라"));
+    }
+
+    @DisplayName("상품명 객체가 \"콜라\"이고, 구매 상품명이 \"사이다\"로 불일치하면, false 반환")
+    @Test
+    void isNotSameProductCheck() {
+        Assertions.assertFalse(new Product("[콜라,1000,1]").isSameProduct("사이다"));
     }
 }
