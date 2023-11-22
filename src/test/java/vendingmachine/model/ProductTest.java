@@ -28,9 +28,15 @@ class ProductTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Product(products));
     }
 
-    @DisplayName("상품 잔고가 0이 아니라면, false 반환")
+    @DisplayName("상품 잔고가 1이라면, false 반환")
     @Test
     void isCountNotZero() {
         Assertions.assertFalse(new Product("[콜라,1000,1]").isZeroCount());
+    }
+
+    @DisplayName("상품명 객체가 \"콜라\"이고, 구매 상품명이 \"콜라\"로 일치하면, true 반환")
+    @Test
+    void isSameProductCheck() {
+        Assertions.assertTrue(new Product("[콜라,1000,1]").isZeroCount("콜라"));
     }
 }
