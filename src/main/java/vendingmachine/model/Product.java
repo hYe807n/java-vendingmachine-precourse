@@ -12,7 +12,7 @@ public class Product {
 
     private final String name;
     private final int price;
-    private final int count;
+    private int count;
 
     public Product(String inform) {
         List<String> informs = Arrays.asList(inform.replaceAll("[\\[\\]]", "").split(","));
@@ -35,6 +35,7 @@ public class Product {
     }
 
     public int calculateBalance(int money) {
+        this.count -= 1;
         return money - this.price;
     }
 
