@@ -17,11 +17,8 @@ public class Products {
     }
 
     public boolean checkPurchaseState(int balance) {
-        return products.stream().allMatch(product -> product.isExpensive(balance));
-    }
-
-    public boolean checkSoldOut() {
-        return products.stream().allMatch(Product::isZeroCount);
+        return !(products.stream().allMatch(product -> product.isExpensive(balance))
+            && !products.stream().allMatch(Product::isZeroCount));
     }
 
     public int purchase(String purchaseProduct, int balance) {

@@ -1,5 +1,7 @@
 package vendingmachine.view;
 
+import static vendingmachine.enums.Form.RESULT_CHANGE;
+
 import java.util.StringJoiner;
 import vendingmachine.enums.Exception;
 import vendingmachine.enums.Form;
@@ -36,5 +38,9 @@ public class OutputView {
 
     public static void printPurchaseProduct() {
         System.out.println(Form.USER_PURCHASE_DEMAND.getMessage());
+    }
+
+    public static void printResultChange() {
+        System.out.println(RESULT_CHANGE.getMessage());
     }
 }

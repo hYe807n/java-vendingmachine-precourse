@@ -9,6 +9,7 @@ public enum Form {
     USER_PROPERTY_DEMAND("\n투입 금액을 입력해 주세요."),
     BALANCE("\n투입 금액: %d원"),
     USER_PURCHASE_DEMAND("구매할 상품명을 입력해 주세요."),
+    RESULT_CHANGE("잔돈"),
     ;
 
     private final String message;
