@@ -45,4 +45,10 @@ class ProductTest {
     void isNotSameProductCheck() {
         Assertions.assertFalse(new Product("[콜라,1000,1]").isSameProduct("사이다"));
     }
+
+    @DisplayName("잔고가 500 원이고, 상품 가격이 1000 원이면, true 반환")
+    @Test
+    void isExpensiveProduct() {
+        Assertions.assertTrue(new Product("[콜라,1000,1]").isExpensive(500));
+    }
 }
