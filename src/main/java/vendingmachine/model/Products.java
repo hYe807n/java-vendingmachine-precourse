@@ -35,7 +35,7 @@ public class Products {
 
     private void validateProductCount(String purchaseProduct) {
         if (products.stream()
-            .filter( product -> product.isSameProduct(purchaseProduct))
+            .filter(product -> product.isSameProduct(purchaseProduct))
             .anyMatch(Product::isZeroCount)) {
             Validation.ZeroCountProduct();
         }

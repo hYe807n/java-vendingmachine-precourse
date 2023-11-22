@@ -1,5 +1,6 @@
 package vendingmachine.enums;
 
+
 public enum Exception {
     HEADER("[ERROR] "),
     MONEY_FORM("금액은 숫자여야 합니다."),

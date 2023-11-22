@@ -1,5 +1,6 @@
 package vendingmachine.enums;
 
+
 public enum Coin {
     COIN_500(500),
     COIN_100(100),

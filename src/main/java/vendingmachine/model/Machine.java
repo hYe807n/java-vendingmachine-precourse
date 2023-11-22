@@ -28,10 +28,11 @@ public class Machine {
         }
         return result.entrySet().stream().filter(unit -> unit.getValue() > 0)
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                (existing, replacement) -> existing,LinkedHashMap::new));
+                (existing, replacement) -> existing, LinkedHashMap::new));
     }
 
-    private Map<Integer, Integer> calculateCoins(Map<Integer, Integer> coins, int key, int value, int money) {
+    private Map<Integer, Integer> calculateCoins(Map<Integer, Integer> coins, int key, int value,
+        int money) {
         if (key <= money) {
             if (key * value >= money) {
                 coins.put(key, money / key);
@@ -49,9 +50,9 @@ public class Machine {
         Map<Integer, Integer> coins = new LinkedHashMap<>();
         int balance = money;
         int count;
-        for (Coin unit: Coin.values()) {
+        for (Coin unit : Coin.values()) {
             count = calculateRandomCoin(unit, balance);
-            coins.put(unit.getAmount(), count);
+            coins.put(unit.getAmount(), calculateRandomCoin(unit, balance));
             balance -= count * unit.getAmount();
         }
         return coins;
