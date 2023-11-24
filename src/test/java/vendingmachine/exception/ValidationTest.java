@@ -13,8 +13,11 @@ class ValidationTest {
             Validation.composeOnlyNumber("12a"));
     }
 
+    @DisplayName("인자가 최소 금액 100 원 미만이라면  IllegalArgumentException 발생")
     @Test
-    void checkMoneyRange() {
+    void exceptionByOutOfMoneyRange() {
+        Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
+            Validation.checkMoneyRange("99"));
     }
 
     @Test
