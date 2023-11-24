@@ -40,4 +40,11 @@ class ValidationTest {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
             Validation.composeOnlyKorean("사이다abc"));
     }
+
+    @DisplayName("인자가 1 미만이라면 IllegalArgumentException 발생")
+    @Test
+    void exceptionByCountZero() {
+        Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
+            Validation.checkProductCount("0"));
+    }
 }
