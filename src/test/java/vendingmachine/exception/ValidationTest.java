@@ -13,38 +13,17 @@ class ValidationTest {
             Validation.composeOnlyNumber("12a"));
     }
 
-    @DisplayName("인자가 최소 금액 100 원 미만이라면  IllegalArgumentException 발생")
+    @DisplayName("인자가 최소 금액 100 원 미만이라면 IllegalArgumentException 발생")
     @Test
     void exceptionByOutOfMoneyRange() {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
             Validation.checkMoneyRange("99"));
     }
 
+    @DisplayName("인자의 금액이 10 원으로 나누어지지 않는다면 IllegalArgumentException 발생")
     @Test
-    void checkMoneyDivide() {
-    }
-
-    @Test
-    void checkProductForm() {
-    }
-
-    @Test
-    void composeOnlyKorean() {
-    }
-
-    @Test
-    void checkProductCount() {
-    }
-
-    @Test
-    void noneExistPurchaseProduct() {
-    }
-
-    @Test
-    void deficiencyPurchaseBalance() {
-    }
-
-    @Test
-    void zeroCountProduct() {
+    void exceptionByNotDivide() {
+        Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
+            Validation.checkMoneyDivide("1111"));
     }
 }
