@@ -26,4 +26,11 @@ class ValidationTest {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
             Validation.checkMoneyDivide("1111"));
     }
+
+    @DisplayName("인자로 받은 상품명, 상품 금액, 상품 개수 양식이 잘못되었다면 IllegalArgumentException 발생")
+    @Test
+    void exceptionByNotProductForm() {
+        Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
+            Validation.checkProductForm("[콜라-10000-2];[사이다-2200-4]"));
+    }
 }
