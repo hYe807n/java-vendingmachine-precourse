@@ -8,7 +8,7 @@ class ValidationTest {
 
     @DisplayName("인자에 숫자 이외의 문자가 포함되어있다면 IllegalArgumentException 발생")
     @Test
-    void exceptionByContainsString() {
+    void exceptionByContainNotOnlyNumber() {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
             Validation.composeOnlyNumber("12a"));
     }
@@ -32,5 +32,12 @@ class ValidationTest {
     void exceptionByNotProductForm() {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
             Validation.checkProductForm("[콜라-10000-2];[사이다-2200-4]"));
+    }
+
+    @DisplayName("인자에 한국어 이외의 문자가 포함되었다면 IllegalArgumentException 발생")
+    @Test
+    void exceptionByContainNotOnlyKorean() {
+        Assertions.assertThatIllegalArgumentException().isThrownBy(() ->
+            Validation.composeOnlyKorean("사이다abc"));
     }
 }
