@@ -6,9 +6,11 @@ import vendingmachine.exception.Validation;
 
 public class Product {
 
-    static private final int INDEX_NAME = 0;
-    static private final int INDEX_PRICE = 1;
-    static private final int INDEX_COUNT = 2;
+    private static final int INDEX_NAME = 0;
+    private static final int INDEX_PRICE = 1;
+    private static final int INDEX_COUNT = 2;
+
+
 
     private final String name;
     private final int price;
