@@ -52,7 +52,7 @@ public class Machine {
         int count;
         for (Coin unit : Coin.values()) {
             count = calculateRandomCoin(unit, balance);
-            coins.put(unit.getAmount(), calculateRandomCoin(unit, balance));
+            coins.put(unit.getAmount(), count);
             balance -= count * unit.getAmount();
         }
         return coins;
