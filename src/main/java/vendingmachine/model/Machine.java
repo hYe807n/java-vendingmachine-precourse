@@ -1,6 +1,8 @@
 package vendingmachine.model;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import vendingmachine.Random.RandomGenerator;
@@ -47,30 +49,27 @@ public class Machine {
     }
 
     private Map<Integer, Integer> initializeCoins(int money) {
-        Map<Integer, Integer> coins = new LinkedHashMap<>();
-        int balance = money;
-        int count;
-        for (Coin unit : Coin.values()) {
-            count = calculateRandomCoin(unit, balance);
-            coins.put(unit.getAmount(), count);
-            balance -= count * unit.getAmount();
+        Map<Integer, Integer> coins = initializeResultCoins();
+        int unit;
+        while (money != 0) {
+            unit = RandomGenerator.pickUnit(initializeRandomCoins(money));
+            if (unit <= money) {
+                coins.put(unit, coins.get(unit) + 1);
+                money -= unit;
+            }
         }
         return coins;
     }
 
-    private int calculateRandomCoin(Coin unit, int balance) {
-        int count = 0;
-        if (unit.getAmount() <= balance) {
-            count = RandomGenerator.pickNumberCount(calculateMaximumCoin(balance, unit));
-        }
-        if (unit.equals(Coin.COIN_10)) {
-            count = calculateMaximumCoin(balance, unit);
-        }
-        return count;
+    private List<Integer> initializeRandomCoins(int money) {
+        return Arrays.stream(Coin.values()).map(Coin::getAmount).filter(amount ->
+            amount <= money).collect(Collectors.toList());
     }
 
-    private int calculateMaximumCoin(int money, Coin coin) {
-        return money / coin.getAmount();
+    private Map<Integer, Integer> initializeResultCoins() {
+        Map<Integer, Integer> coins = new LinkedHashMap<>();
+        Arrays.stream(Coin.values()).forEach(coin -> coins.put(coin.getAmount(), 0));
+        return coins;
     }
 
     private void validate(String money) {
